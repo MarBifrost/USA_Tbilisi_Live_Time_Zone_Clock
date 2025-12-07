@@ -1,6 +1,5 @@
 # =============================================================================
-# CLEAN FINAL VERSION – NO EXAMPLE TEXT
-# Perfect from Tbilisi – ZIP codes + misspellings + real timezones
+# Tbilisi – ZIP codes + misspellings + real timezones
 # =============================================================================
 
 import tkinter as tk
@@ -9,7 +8,7 @@ import pytz
 from geopy.geocoders import Nominatim
 from timezonefinder import TimezoneFinder
 import re
-import us  # pip install us
+import us
 
 geolocator = Nominatim(user_agent="tbilisi_clock_clean")
 tf = TimezoneFinder()
@@ -32,7 +31,7 @@ US_TIMEZONES = {
     "Mountain":  "US/Mountain",
     "Pacific":   "US/Pacific",
     "Alaska":    "US/Alaska",
-    "Hawaii":    "US/Hawaii",
+    # "Hawaii":    "US/Hawaii",
     "Arizona":   "US/Arizona",
 }
 
@@ -53,7 +52,7 @@ def get_real_tz_name(iana: str) -> str:
             "US/Central":   "CDT" if now.dst() else "CST",
             "US/Mountain":  "MDT" if now.dst() else "MST",
             "US/Pacific":   "PDT" if now.dst() else "PST",
-            # "US/Alaska":    "AKDT" if now.dst() else "AKST",
+            "US/Alaska":    "AKDT" if now.dst() else "AKST",
             # "US/Hawaii":    "HST",
             "US/Arizona":   "MST",
             "Europe/London": "BST" if now.dst() else "GMT",
